@@ -38,7 +38,7 @@ mkdir .cargo
 
 cat > .cargo/config <<EOF
 [target.$TARGET]
-linker = "$CC"
+linker = "$TARGET_CC"
 EOF
 
 cat .cargo/config
