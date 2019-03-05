@@ -24,6 +24,14 @@ case "$1" in
                 libc6-dev-armhf-cross \
                 qemu-user-binfmt
         ;;
+    armv7-unknown-linux-gnueabihf)
+        apt-get -qqy --no-install-recommends install \
+                binfmt-support \
+                gcc-arm-linux-gnueabihf \
+                libc6-dev-armhf-cross \
+                qemu-user-binfmt
+        ;;
+
     *)
         echo "UNKNOWN TARGET: $TARGET"
         exit 1

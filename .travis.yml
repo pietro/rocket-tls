@@ -6,6 +6,7 @@ env:
   - TARGET=i686-unknown-linux-gnu CC=gcc TARGET_CC=gcc
   - TARGET=aarch64-unknown-linux-gnu CC=gcc TARGET_CC=aarch64-linux-gnu-gcc QEMU_LD_PREFIX=/usr/aarch64-linux-gnu
   - TARGET=arm-unknown-linux-gnueabihf CC=gcc TARGET_CC=arm-linux-gnueabihf-gcc QEMU_LD_PREFIX=/usr/arm-linux-gnueabihf
+  - TARGET=armv7-unknown-linux-gnueabihf CC=gcc TARGET_CC=arm-linux-gnueabihf-gcc QEMU_LD_PREFIX=/usr/arm-linux-gnueabihf
 
 before_install:
   - sudo ci/dependencies.sh "$TARGET"
