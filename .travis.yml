@@ -16,7 +16,7 @@ install:
 
 script:
   - cargo build --verbose --target "$TARGET"
-  - cargo test --verbose "$TARGET"
+  - cargo test --verbose --target "$TARGET"
 
 rust:
   - nightly
