@@ -3,6 +3,7 @@ dist: xenial
 
 env:
   - TARGET=x86_64-unknown-linux-gnu CC=gcc
+  - TARGET=i686-unknown-linux-gnu CC=gcc
   - TARGET=aarch64-unknown-linux-gnu CC=aarch64-linux-gnu-gcc
   - TARGET=arm-unknown-linux-gnueabihf CC=arm-linux-gnueabihf-gcc
 
