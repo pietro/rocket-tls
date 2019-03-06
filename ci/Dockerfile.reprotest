@@ -1,0 +1,17 @@
+FROM debian:testing
+
+RUN apt-get update -qq && \
+    apt-get upgrade -qq -y && \
+    apt-get install -qq -y \
+            build-essential \
+            curl \
+            diffoscope
+
+ENV PYTHONIOENCODING=utf-8
+
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly && \
+    cp ~/.cargo/bin/rustup ~/.cargo/bin/cargo ~/.cargo/bin/rustc /usr/bin/
+
+WORKDIR /rocket-tls/
+
+COPY . .

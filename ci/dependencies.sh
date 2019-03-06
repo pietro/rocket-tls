@@ -37,14 +37,3 @@ case "$1" in
         exit 1
         ;;
 esac
-
-$CC --version
-
-mkdir .cargo
-
-cat > .cargo/config <<EOF
-[target.$TARGET]
-linker = "$TARGET_CC"
-EOF
-
-cat .cargo/config

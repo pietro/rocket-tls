@@ -1,12 +1,17 @@
 language: rust
+
+rust:
+  - nightly
+
 dist: xenial
 
 env:
-  - TARGET=x86_64-unknown-linux-gnu CC=gcc TARGET_CC=gcc
-  - TARGET=i686-unknown-linux-gnu CC=gcc TARGET_CC=gcc
-  - TARGET=aarch64-unknown-linux-gnu CC=gcc TARGET_CC=aarch64-linux-gnu-gcc QEMU_LD_PREFIX=/usr/aarch64-linux-gnu
-  - TARGET=arm-unknown-linux-gnueabihf CC=gcc TARGET_CC=arm-linux-gnueabihf-gcc QEMU_LD_PREFIX=/usr/arm-linux-gnueabihf
-  - TARGET=armv7-unknown-linux-gnueabihf CC=gcc TARGET_CC=arm-linux-gnueabihf-gcc QEMU_LD_PREFIX=/usr/arm-linux-gnueabihf
+  - TARGET=x86_64-unknown-linux-gnu
+  - TARGET=x86_64-unknown-linux-gnu BUILD_MODE=reprotest
+  - TARGET=i686-unknown-linux-gnu TARGET_CC=gcc
+  - TARGET=aarch64-unknown-linux-gnu TARGET_CC=aarch64-linux-gnu-gcc QEMU_LD_PREFIX=/usr/aarch64-linux-gnu
+  - TARGET=arm-unknown-linux-gnueabihf TARGET_CC=arm-linux-gnueabihf-gcc QEMU_LD_PREFIX=/usr/arm-linux-gnueabihf
+  - TARGET=armv7-unknown-linux-gnueabihf TARGET_CC=arm-linux-gnueabihf-gcc QEMU_LD_PREFIX=/usr/arm-linux-gnueabihf
 
 before_install:
   - sudo ci/dependencies.sh "$TARGET"
@@ -16,8 +21,5 @@ install:
   - rustup target add "$TARGET" || true
 
 script:
-  - cargo build -vv --target "$TARGET"
-  - cargo test -vv --target "$TARGET"
-
-rust:
-  - nightly
+  - ci/build.sh
+  - ci/test.sh
