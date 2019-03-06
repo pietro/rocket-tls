@@ -2,10 +2,11 @@ FROM debian:testing
 
 RUN apt-get update -qq && \
     DEBIAN_FRONTEND=noninteractive apt-get upgrade -qq -y && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends diffoscope && \
     DEBIAN_FRONTEND=noninteractive apt-get install -qq -y \
             build-essential \
             curl \
-            diffoscope
+            reprotest
 
 ENV PYTHONIOENCODING=utf-8
 
