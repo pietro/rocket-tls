@@ -40,7 +40,7 @@ esac
 
 case "${BUILD_MODE-}" in
     reprotest)
-        apt-get -qqy --no-install-recommends install diffoscope
+        apt-get -qqy --no-install-recommends install diffoscope python3-pip
         pip3 install reprotest
         ;;
     *)
