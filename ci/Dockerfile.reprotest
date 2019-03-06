@@ -1,8 +1,8 @@
 FROM debian:testing
 
 RUN apt-get update -qq && \
-    apt-get upgrade -qq -y && \
-    apt-get install -qq -y \
+    DEBIAN_FRONTEND=noninteractive apt-get upgrade -qq -y && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -qq -y \
             build-essential \
             curl \
             diffoscope
