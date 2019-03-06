@@ -13,6 +13,10 @@ env:
   - TARGET=arm-unknown-linux-gnueabihf TARGET_CC=arm-linux-gnueabihf-gcc QEMU_LD_PREFIX=/usr/arm-linux-gnueabihf
   - TARGET=armv7-unknown-linux-gnueabihf TARGET_CC=arm-linux-gnueabihf-gcc QEMU_LD_PREFIX=/usr/arm-linux-gnueabihf
 
+matrix:
+  allow_failures:
+  - env: TARGET=x86_64-unknown-linux-gnu BUILD_MODE=reprotest
+
 before_install:
   - sudo ci/dependencies.sh "$TARGET"
 
