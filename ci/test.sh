@@ -8,6 +8,6 @@ case "${BUILD_MODE-}" in
         ci/reprotest.sh
         ;;
     *)
-        cargo test -vv --target="$TARGET"
+        cargo test -j $(nproc --all) -vv --target="$TARGET"
         ;;
 esac

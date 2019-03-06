@@ -25,6 +25,6 @@ case "${BUILD_MODE-}" in
         #docker build -t rocket_tls-reprotest -f ci/Dockerfile.reprotest .
         ;;
     *)
-        cargo build -vv --target="$TARGET"
+        cargo build -j $(nproc --all) -vv --target="$TARGET"
         ;;
 esac
