@@ -4,7 +4,7 @@ set -eux -o pipefail
 
 case "$TARGET" in
     x86_64-unknown-linux-gnu)
-        "$CC" --version
+        cc --version
         ;;
     *)
         mkdir .cargo
@@ -20,7 +20,7 @@ EOF
         ;;
 esac
 
-case "$BUILD_MODE" in
+case "${BUILD_MODE-}" in
     reprotest)
         docker build -t rocket_tls-reprotest -f ci/Dockerfile.reprotest .
         ;;
