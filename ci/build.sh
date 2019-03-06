@@ -22,7 +22,7 @@ esac
 
 case "${BUILD_MODE-}" in
     reprotest)
-        docker build -t rocket_tls-reprotest -f ci/Dockerfile.reprotest .
+        #docker build -t rocket_tls-reprotest -f ci/Dockerfile.reprotest .
         ;;
     *)
         cargo build -vv --target="$TARGET"
