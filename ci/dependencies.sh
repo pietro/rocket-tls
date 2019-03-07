@@ -40,7 +40,7 @@ esac
 
 case "${BUILD_MODE-}" in
     reprotest)
-        apt-get -qqy --no-install-recommends install faketime python3-pip python3-setuptools
+        apt-get -qqy --no-install-recommends install faketime python3-pip python3-setuptools python3-libarchive-c
         pip3 install reprotest
         ;;
     *)
